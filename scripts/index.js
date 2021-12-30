@@ -1,7 +1,10 @@
 window.onload = function() {
 	let content = document.querySelector(".content"),
 			lat = 0, long = 0, query = "", unit = "", api = "",
-			hourForeApi = "",
+			forecastApi = "", daily = document.querySelector(".daily"),
+			today = document.querySelector(".today"),
+			week = document.querySelector(".week"),
+			currentDiv = document.querySelector(".current"),
 			location = document.querySelector(".location"),
 			celciusBtn = document.querySelector(".celcius"),
 			currentTemp = document.querySelector(".currentTemp"),
@@ -25,7 +28,7 @@ window.onload = function() {
 			long = position.coords.longitude;
 			
 			api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
-			hourForeApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
+			forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
 			
 			
 			getWeatherInfo();
@@ -49,7 +52,7 @@ window.onload = function() {
 				lat = data.locations[0].referencePosition.latitude;
 				long = data.locations[0].referencePosition.longitude;
 				
-				hourForeApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
+				forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
 				getHourForeCast();
 			});
 			
@@ -65,8 +68,9 @@ window.onload = function() {
 				lat = data.places[0].latitude;
 				long = data.places[0].longitude;
 				
-				hourForeApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
-				getHourForeCast()
+				forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
+				getHourForeCast();
+				getDailyForeCast();
 			});
 		}
 		
@@ -103,7 +107,7 @@ window.onload = function() {
 	
 	function getHourForeCast() {
 		
-		fetch(hourForeApi)
+		fetch(forecastApi)
 		.then(function (response) {
 			return response.json();
 		})
@@ -133,8 +137,6 @@ window.onload = function() {
 				hourTemp.classList.add("hourTemp");
 				hourTemp.textContent = Math.round(data.hourly[i].temp) + "°C";
 				hForDiv.append(hourTemp);
-//				hourLabel.setAttribute("id", `hour${i}`);
-//				console.log(hForDiv.className);
 				
 			}
 		
@@ -154,9 +156,98 @@ window.onload = function() {
 		return `${weekday[day]}, ${months[month]} ${date}`;
 		
 	}
-	
-	function getHour() {
+
+	week.addEventListener("click", function() {
+		currentDiv.style.display = "none";
+		daily.style.display = "block";
+		week.style.textDecoration = "underline";
+		week.style.opacity = 1.0;
+
+		today.style.textDecoration = "none";
+		today.style.opacity = 0.5;
+		getDailyForeCast();
+	});
+
+	today.addEventListener("click", function() {
+		daily.style.display = "none";
+		currentDiv.style.display = "block";
+		today.style.textDecoration = "underline";
+		today.style.opacity = 1.0;
+
+		week.style.textDecoration = "none";
+		week.style.opacity = 0.5;
+	});
+
+	function getDailyForeCast() {
 		
+		fetch(forecastApi)
+		.then(function (response) {
+			return response.json();
+		})
+		.then(function (data) {
+			console.log(data);
+			
+			daily.innerHTML = " ";
+			
+			for (var i = 0; i < 8; i++) {
+				
+				var forecastDiv = document.createElement("div");
+				
+				forecastDiv.classList.add("dailyForeCast");
+				daily.append(forecastDiv);
+				
+				var dayLabel = document.createElement("p");
+				dayLabel.classList.add("day");
+				dayLabel.textContent = getDate(data.daily[i].dt);
+				forecastDiv.append(dayLabel);
+
+				var imgLabel = document.createElement("p");
+				imgLabel.classList.add("imgLabel");
+				imgLabel.textContent = data.daily[i].weather[0].description;
+				forecastDiv.append(imgLabel);
+				
+				var dailyImg = document.createElement("img");
+				dailyImg.src = `http://openweathermap.org/img/wn/${data.daily[i].weather[0].icon}.png`;
+				forecastDiv.append(dailyImg);
+
+				var maxTemp = document.createElement("p");
+				maxTemp.classList.add("maxTemp");
+				maxTemp.textContent = `High: ${Math.round(data.daily[i].temp.max)}°C`;
+				forecastDiv.append(maxTemp);
+				
+				var minTemp = document.createElement("p");
+				minTemp.classList.add("minTemp");
+				minTemp.textContent = `Low: ${Math.round(data.daily[i].temp.min)}°C`;
+				forecastDiv.append(minTemp);
+				
+			}
+		
+		});
 	}
+
+	function getDate(forecastDate) {
+		var theDate = new Date(forecastDate * 1000);
+		var month = theDate.getMonth();
+		var date = theDate.getDate();
+		var day = theDate.getDay();
+		var i = 0;
+
+		function checkDay(i) {
+				if (i + day > 6) {
+						return i + day - 7;
+				} else {
+						return i + day;
+				}
+		}
+
+		var weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    var months = ["January ", "February ", "March ", "April ", "May ", "June ", "July ", "August ", "September ", "October ", "November ", "December"];
+
+		return weekday[checkDay(i)] + ", " + months[month] + " " + date;
+
+}
+	
+
 			
 }
