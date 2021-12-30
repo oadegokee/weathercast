@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Weather Cast</title>
+	<link rel="stylesheet" href="../styles/style.css">
+	<script src="https://kit.fontawesome.com/67c66657c7.js"></script>
+	<script src="https://MomentJS.com/downloads/moment.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+	<nav class="nav">
+		<div class="name">Weather Cast</div>
+		<div class="searchBar">
+			<input type="search" placeholder="Enter city or zip code" class="search">
+			<span class="fa fa-search" id="sIcon"></span>
+			
+		</div>
+		
+		<!-- Don't forget to add toggle for light and dark mode	-->
+		
+	</nav>
+	
+	<div class="content">
+		<div class="topContainer">
+			<div class="weatherType">
+				<p>Today</p>
+				<p>Week</p>
+			</div>
+
+			<div class="loc">
+				<i class="material-icons">place</i>
+				<h2 class="location"></h2>
+			</div>
+
+			<div class="tempUnit">
+				<button class="celcius">°C</button>
+				<button class="fah">°F</button>
+			</div>
+		</div>
+	
+		<div>
+			<div class="current">
+				<div class="leftCurrent">
+					<p class="currentTemp"></p>
+					<p class="currentDate"></p>
+
+					<div class="highLow">
+						<p class="currentHigh"></p>&nbsp;&nbsp;
+						<p class="currentLow"></p>
+					</div>
+
+					<!-- Start Here -->
+					<div class="currentInfo">
+						<div class="feels">
+							<p class="feelsLabel">Feel Like</p>
+							<p class="feelsLike"></p>
+							<p>h</p>
+						</div>
+						
+						<div class="riseSet">
+							<p>Sunrise and Sunset</p>
+							<div class="sunrise">
+								<!-- Don't forget to icon for sunrise -->
+								
+								<p class="riseTime"></p>
+							</div>
+
+							<div class="sunset">
+								<!-- Don't forget to icon for sunset -->
+								<p class="setTime"></p>
+							</div>
+						</div>
+
+						<div class="wind">
+							<p class="windLabel">Wind Status</p>
+							<p class="windStatus"></p>
+							<p>💨</p>
+						</div>
+
+						<div class="humid">
+							<p class="humidLabel">Humidity</p>
+							<p class="humidity"></p>
+							<p>h</p>
+						</div>
+						
+						<div>
+							<p class="pLabel">Pressure</p>
+							<p class="pressure"></p>
+							<p>h</p>
+						</div>
+						
+						<div>
+							<p class="visLabel">Visibility</p>
+							<p class="visibility"></p>
+							<p>👀</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="weatherCondition">
+					<img class="icon" src="" alt="">
+				</div>
+				
+				<div class="hForecast">
+					<h2 id="hForeLab">Hourly Forecast</h2>
+					
+					<div class="hourly">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<script src="../scripts/index.js"></script>
+</body>
+</html>

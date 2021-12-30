@@ -1,0 +1,151 @@
+body {
+	background: #FFFAFA;
+}
+
+.content {
+	display: none;
+}
+nav {
+	display: flex;
+	background: #800000;
+	position: relative;
+	justify-content: space-between;
+	padding: 15px 30px;
+}
+
+nav .name {
+	color: #FFFAFA;
+	font-size: 40px;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+nav .searchBar {
+	display: flex;
+	margin: auto;
+	height: 35px;
+	padding-top: 5px;
+}
+
+nav .searchBar input {
+	border-radius: 7px;
+	padding: 0 15px;
+	font-size: 20px;
+}
+
+nav .searchBar span {
+	font-size: 20px;
+	padding: 8px;
+	cursor: pointer;
+	position: relative;
+  color: #fff;
+}
+
+.topContainer {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px 5px;
+	
+}
+
+.weatherType p {
+	display: inline-block;
+	font-size: 20px;
+	margin-right: 10px;
+	
+}
+
+.loc h2{
+	display: inline-block;
+}
+
+.weatherCondition {
+	float: right;
+}
+.condition {
+	font-size: 50px;
+	margin-bottom: 1px;
+	text-align: center;
+}
+.icon {
+	width: 700px;
+	margin-right: 50px;
+	
+}
+
+.leftCurrent {
+	text-align: center;
+	width: 44%;
+	float: left;
+}
+
+.currentTemp{
+	font-size: 70px;
+	margin-top: 50px;
+	margin-bottom: 1px;
+}
+
+.currentDate {
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+
+.highLow p {
+	display: inline;
+	font-size: 20px;
+}
+
+.highLow {
+	margin-top: 1px;
+}
+
+.currentInfo > div {
+	display: inline-block;
+  border: 2px solid black;
+	border-radius: 20px;
+  margin: 5px;
+  text-align: center;
+  padding: 10px;
+	background: #800000;
+	color: #FFFAFA;
+	width: 22%;
+	height: 150px;
+}
+
+.riseSet {
+	margin-bottom: 1000px;
+}
+
+.riseSet > div > p {
+	margin: 6px;
+}
+
+.hForecast {
+	display: flex;
+	width: 100%;
+	margin: auto;
+}
+
+#hForeLab {
+	width: 2px;
+/*	margin: 5px;*/
+	top: -90px;
+	position: relative;
+}
+
+.hourlyForecast {
+  display: inline-block;
+  border: 2px solid white;
+  margin: 5px;
+  text-align: center;
+  padding: 10px;
+	background: #800000;
+	color: #FFFAFA;
+
+}
+
+.hourlyForecast p {
+	margin: 0;
+	
+}
+
