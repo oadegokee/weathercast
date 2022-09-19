@@ -1,16 +1,46 @@
 body {
-	background: #FFFAFA;
+	background-image: url(../images/davies-designs-studio-G-6kwVnClsE-unsplash.jpg); 
+	background-repeat: no-repeat;
+}
+
+.loading {
+	width: 20rem;
+	height: 20rem;
+	border: 5px solid #f3f3f3;
+	border-top: 6px solid #000009;
+	border-radius: 100%;
+	margin: auto;
+	padding: 1px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	animation: load 1s infinite linear;
+}
+
+@keyframes load {
+	from {
+		transform: rotate(0deg);
+	}
+	
+	to {
+		transform: rotate(360deg);
+	}
 }
 
 .content {
 	display: none;
 }
+
 nav {
 	display: flex;
-	background: #800000;
+	background: #000009;
 	position: relative;
 	justify-content: space-between;
 	padding: 15px 30px;
+	top: -12px;
+	margin-top: 0;
 }
 
 nav .name {
@@ -41,11 +71,18 @@ nav .searchBar span {
   color: #fff;
 }
 
+#error {
+	width: 100%;
+	margin: auto;
+	color: red;
+	text-align: center;
+	display: none;
+}
+
 .topContainer {
 	display: flex;
 	justify-content: space-between;
 	padding: 5px 5px;
-	
 }
 
 .weatherType {
@@ -70,32 +107,48 @@ nav .searchBar span {
 
 .loc h2{
 	display: inline-block;
+	padding-top: 5px;
+	font-size: 30px;
+}
+
+.tempUnit {
+	width: 150px
+}
+
+.tempUnit button {
+	display: inline-block;
+	font-size: 30px;
+	background-color: #000009; 
+  color: #FFFFFF;
+  padding: 10px;
+  text-align: center;
+  margin: 15px 2px;
+  cursor: pointer;
+	border-radius: 50%;
+}
+
+.fah {
+	opacity: 0.5;
 }
 
 .weatherCondition {
 	float: right;
 }
-.condition {
-	font-size: 50px;
-	margin-bottom: 1px;
-	text-align: center;
-}
+
 .icon {
-	width: 700px;
+	width: 520px;
 	margin-right: 50px;
-	
 }
 
 .leftCurrent {
 	text-align: center;
-	width: 30%;
+	width: 50%;
 	float: left;
-	margin-left: 10px;
 }
 
 .currentTemp{
-	font-size: 70px;
-	margin-top: 50px;
+	font-size: 65px;
+	margin-top: 5px;
 	margin-bottom: 1px;
 }
 
@@ -115,23 +168,19 @@ nav .searchBar span {
 
 .currentInfo > div {
 	display: inline-block;
-  border: 2px solid black;
+	box-shadow: 2px 5px black;
 	border-radius: 20px;
   margin: 5px;
   text-align: center;
-  padding: 10px;
-	background: #800000;
+	background: #000009;
 	color: #FFFAFA;
-	width: 22%;
-	height: 150px;
+	padding: 2px;
+	height: 100px;
+	min-width: 30%;
 }
 
-.riseSet {
-	margin-bottom: 1000px;
-}
-
-.riseSet > div > p {
-	margin: 6px;
+.currentInfo > div > p {
+	font-size: 20px;
 }
 
 .hForecast {
@@ -142,7 +191,6 @@ nav .searchBar span {
 
 #hForeLab {
 	width: 2px;
-/*	margin: 5px;*/
 	top: -90px;
 	position: relative;
 }
@@ -150,12 +198,13 @@ nav .searchBar span {
 .hourlyForecast {
   display: inline-block;
   border: 2px solid white;
-  margin: 5px;
+	border-radius: 20px;
+  margin: 10px;
   text-align: center;
   padding: 10px;
-	background: #800000;
+	background: #000009;
 	color: #FFFAFA;
-
+	font-size: 20px;
 }
 
 .hourlyForecast p {
@@ -166,21 +215,317 @@ nav .searchBar span {
 .forecast {
 	width: 100%;
 	margin: auto;
+	margin-left: 40px;
 }
 
 .dailyForeCast {
   display: inline-block;
   border: 2px solid white;
 	border-radius: 20px;
-  margin: 5px auto;
+  margin: auto;
   text-align: center;
-  padding: 10px;
+  padding: 30px;
 	width: 30%;
-	max-width: 300px;
-	background: #800000;
+	max-width: 450px;
+	min-width: 150px;
+	background: #000009;
 	color: #FFFAFA;
+	
+}
+
+.daily {
+	width: 100%;
+	margin: auto;
+	margin-left: 40px;
+}
+
+.day {
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.imgLabel {
+	font-size: 20px;
+}
+
+.dailyImg {
+	display: block;
+	margin: auto;
 }
 
 .maxTemp, .minTemp {
-	display: inline;
+	display: inline-block;
+	margin-right: 20px;
+	font-size: 20px;
+}
+
+@media screen and (max-width: 515px) and (min-width: 250px) {
+	.topContainer {
+		padding: 1px 1px;
+	}
+
+	.weatherType {
+		margin-left: 0;
+	}
+
+	.weatherType p {
+		font-size: 20px;
+		padding: 0;
+		width: 40px
+	}
+
+	.loc h2{
+		padding-top: 0;
+		font-size: 20px;
+	}
+
+	.tempUnit {
+		width: 120px;
+	}
+
+	.tempUnit button {
+		font-size: 20px;
+		padding: 5px;
+		margin: 15px 2px;
+	}
+	
+	
+	.leftCurrent {
+		width: 100%;
+		float: left;
+	}
+	
+	.currentTemp, .currentDate, .highLow{
+		width: 45%
+	}
+	
+	.currentInfo > div {
+		min-width: 25%;
+	}
+	
+	.icon {
+		width: 290px;
+		margin-right: 3px;
+		position: relative;
+		top: -500px;
+	}
+	
+	#hForeLab {
+		margin: 5px;
+		top: -280px;
+	}
+
+	.hourlyForecast {
+		margin-top: 20px;
+		padding: 10px;
+		width: 70px;
+		top: -220px;
+		position: relative;
+	}
+	
+	nav {
+		display: block;
+		padding: 20px 30px;
+	}
+
+	nav .name {
+		font-size: 35px;
+		text-align: center;
+	}
+
+	nav .searchBar {
+		padding-top: 5px;
+		margin: auto;
+		width: 240px;
+	}
+	
+
+}
+
+@media screen and (max-width: 890px) and (min-width: 516px) {
+	
+	.topContainer {
+		padding: 6px 20px;
+	}
+
+	.weatherType {
+		margin-left: 0;
+	}
+
+	.weatherType p {
+		font-size: 25px;
+	}
+	
+
+	.loc h2{
+		padding-top: 0;
+		font-size: 25px;
+	}
+	
+
+	.tempUnit {
+		width: 130px
+	}
+	
+
+	.tempUnit button {
+		font-size: 25px;
+		padding: 5px;
+		margin: 15px 2px;
+	}
+	
+	.leftCurrent {
+		width: 100%;
+		float: left;
+	}
+	
+	.currentTemp, .currentDate, .highLow{
+		width: 30%
+	}
+	
+	.icon {
+		width: 350px;
+		margin-right: 3px;
+		position: relative;
+		top: -500px;
+	}
+	
+	#hForeLab {
+		margin: 5px;
+		top: -310px;
+	}
+
+	.hourlyForecast {
+		margin-top: 70px;
+		padding: 10px;
+		width: 70px;
+		top: -250px;
+		position: relative;
+	}
+	
+}
+
+@media screen and (max-width: 1015px) and (min-width: 891px) {
+	#hForeLab {
+		width: 2px;
+		margin: 5px;
+		top: 20px;
+		position: relative;
+	}
+	
+	.hourlyForecast {
+		margin-top: 53px;
+		font-size: 20px;
+		width: 70px;
+		top: 50px;
+		position: relative;
+	}
+	
+	.leftCurrent {
+		width: 50%;	
+	}
+
+	.icon {
+		width: 380px;
+		position: relative;
+		top: 140px;
+	}
+}
+
+@media screen and (min-width: 1017px) {
+	#hForeLab {
+		width: 2px;
+		margin: 5px;
+		top: 20px;
+		position: relative;
+	}
+	
+	.hourlyForecast {
+		margin-top: 53px;
+		font-size: 20px;
+		width: 70px;
+		top: 50px;
+		position: relative;
+	}
+	
+	.leftCurrent {
+		width: 50%;	
+	}
+
+	.icon {
+		width: 380px;
+		position: relative;
+		top: 70px;
+	}
+}
+
+@media screen and (max-width: 590px) and (min-width: 250px) {
+
+	.forecast {
+		width: 100%;
+		margin: auto;
+		margin-top: 30px;
+	}
+
+	.dailyForeCast {
+		display: block;
+		width: 100%;
+	}
+	
+	.daily {
+		margin-left: 0;
+	}
+
+}
+
+@media screen and (max-width: 889px) and (min-width: 591px) {
+	
+	.forecast {
+		width: 100%;
+		margin: auto;
+	}
+
+	.dailyForeCast {
+		display: inline-block;
+		height: 200px;
+		margin: 1px auto;
+		padding: 40px;
+		width: 34%;
+	}
+	
+	.day {
+		font-size: 18px;
+		font-weight: bold;
+	}
+	
+	.maxTemp, .minTemp {
+		font-size: 16px;
+	}
+	
+	.daily {
+		margin-left: 12px;
+	}
+
+}
+
+@media screen and (max-width: 515px) {
+	.icon {
+		width: 300px;
+		position: relative;
+		top: -460px;
+		margin-right: -20px;
+	}
+}
+
+@media screen and (max-width: 1251px) and (min-width: 890px) {
+
+	.forecast {
+		width: 100%;
+		margin: auto;
+	}
+	
+	.dailyForeCast {
+		width: 42%;
+	}
+
 }
