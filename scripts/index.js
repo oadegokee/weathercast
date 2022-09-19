@@ -40,6 +40,7 @@ window.onload = function() {
 				long = position.coords.longitude;
 				var celciusBtn = document.querySelector(".celcius");
 				var fahrnBtn = document.querySelector(".fah");
+				
 
 				api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
 				forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
