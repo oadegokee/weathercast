@@ -26,6 +26,7 @@ window.onload = function() {
 			visibility = document.querySelector(".visibility"),
 			search = document.querySelector(".search"),
 			searchIcon = document.querySelector("#sIcon");
+
 	
 	logo.addEventListener("click", function() {
 		window.location.reload();
@@ -131,9 +132,7 @@ window.onload = function() {
 	}
 
 	
-	searchIcon.addEventListener("click", function() {
-		returnData();
-	});
+	
 
 	document.addEventListener("keyup", function(event) {
 		if (event.keyCode === 13) {
@@ -237,18 +236,21 @@ window.onload = function() {
 	}
 
 	function displayWeeklyForecast() {
+		
 		currentDiv.style.display = "none";
-		daily.style.display = "inline-block";
+		daily.style.display = "flex";
 		week.style.textDecoration = "underline";
 		week.style.opacity = 1.0;
 
 		today.style.textDecoration = "none";
 		today.style.opacity = 0.5;
 		getDailyForeCast();
+		
 	}
 
 	week.addEventListener("click", function() {
 		displayWeeklyForecast();
+	
 	});
 
 

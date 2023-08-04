@@ -1,3 +1,9 @@
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 body {
 	background-image: url(../images/davies-designs-studio-G-6kwVnClsE-unsplash.jpg); 
 	background-repeat: no-repeat;
@@ -29,47 +35,35 @@ body {
 	}
 }
 
-.content {
-	display: none;
-}
-
 nav {
 	display: flex;
-	background: #000009;
-	position: relative;
 	justify-content: space-between;
-	padding: 15px 30px;
-	top: -12px;
-	margin-top: 0;
+	align-items: center;
+	padding: 1rem;
+	position: fixed;
+	background: #000009;
+	width: 100%;
+	height: 90px;
+	z-index: 10;
 }
 
 nav .name {
 	color: #FFFAFA;
-	font-size: 40px;
+	font-size: 2rem;
 	font-weight: bold;
 	cursor: pointer;
 }
 
-nav .searchBar {
-	display: flex;
-	margin: auto;
-	height: 35px;
-	padding-top: 5px;
+.searchBar {
+	margin: 0 auto;
 }
 
-nav .searchBar input {
+.searchBar input {
 	border-radius: 7px;
-	padding: 0 15px;
-	font-size: 20px;
+	padding: 0.5rem;
+	font-size: 1.2rem;
 }
 
-nav .searchBar span {
-	font-size: 20px;
-	padding: 8px;
-	cursor: pointer;
-	position: relative;
-  color: #fff;
-}
 
 #error {
 	width: 100%;
@@ -79,21 +73,25 @@ nav .searchBar span {
 	display: none;
 }
 
+.content {
+	display: none;
+	position: relative;
+	top: 100px;
+}
+
 .topContainer {
 	display: flex;
 	justify-content: space-between;
-	padding: 5px 5px;
+	padding: 1rem;
 }
 
 .weatherType {
-	margin-left: 20px;
+	display: flex;
 }
 
 .weatherType p {
-	display: inline-block;
-	font-size: 30px;
-	margin-right: 10px;
-	margin-left: 6px;
+	font-size: 2rem;
+	margin-left: 1rem;
 	opacity: 0.5;
 	cursor: pointer;
 	text-decoration: none;
@@ -105,25 +103,35 @@ nav .searchBar span {
 	opacity: 1;
 }
 
+.loc {
+	display: flex;
+	justify-content: center;
+
+}
+
+.loc i {
+	font-size: 2.5rem;
+	margin-left: 1rem;
+}
+
 .loc h2{
-	display: inline-block;
-	padding-top: 5px;
-	font-size: 30px;
+	font-size: 2.2rem;
+	margin-left: 1rem;
+	
 }
 
 .tempUnit {
-	width: 150px
+	display: flex;
 }
 
 .tempUnit button {
-	display: inline-block;
-	font-size: 30px;
+	font-size: 1.5rem;
+	margin-left: 0.5rem;
 	background-color: #000009; 
-  color: #FFFFFF;
-  padding: 10px;
-  text-align: center;
-  margin: 15px 2px;
-  cursor: pointer;
+	color: #FFFFFF;
+	padding: 0.5rem;
+	text-align: center;
+	cursor: pointer;
 	border-radius: 50%;
 }
 
@@ -131,401 +139,251 @@ nav .searchBar span {
 	opacity: 0.5;
 }
 
-.weatherCondition {
-	float: right;
-}
 
-.icon {
-	width: 520px;
-	margin-right: 50px;
+.now {
+	display: flex;
+	margin-top: 2rem;
 }
 
 .leftCurrent {
 	text-align: center;
-	width: 50%;
-	float: left;
 }
 
 .currentTemp{
-	font-size: 65px;
-	margin-top: 5px;
-	margin-bottom: 1px;
+	font-size: 4rem;
 }
 
 .currentDate {
-	font-size: 25px;
-	margin-bottom: 10px;
+	font-size: 2rem;
+}
+
+
+.highLow {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
 }
 
 .highLow p {
-	display: inline;
-	font-size: 20px;
+	font-size: 1.5rem;
 }
 
-.highLow {
-	margin-top: 1px;
+.currentInfo {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .currentInfo > div {
-	display: inline-block;
 	box-shadow: 2px 5px black;
 	border-radius: 20px;
-  margin: 5px;
-  text-align: center;
+	margin: auto;
+	margin-bottom: 0.5rem;
+  	text-align: center;
 	background: #000009;
 	color: #FFFAFA;
-	padding: 2px;
-	height: 100px;
-	min-width: 30%;
+	padding: 0.5rem;
+	width: 300px;
 }
 
 .currentInfo > div > p {
-	font-size: 20px;
+	font-size: 1.5rem;
+	padding-top: 0.5rem;
+	padding-bottom: 0.5rem;
+}
+.weatherCondition {
+	width: 800px;
 }
 
-.hForecast {
-	display: flex;
+.icon {
 	width: 100%;
-	margin: auto;
+	height: 100%;
 }
 
 #hForeLab {
-	width: 2px;
-	top: -90px;
-	position: relative;
+	margin: 1rem;
+}
+
+.hourly {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .hourlyForecast {
-  display: inline-block;
   border: 2px solid white;
-	border-radius: 20px;
-  margin: 10px;
+  border-radius: 20px;
+  margin: 1rem;
   text-align: center;
-  padding: 10px;
-	background: #000009;
-	color: #FFFAFA;
-	font-size: 20px;
+
+  padding: 0.5rem;
+  background: #000009;
+  color: #FFFAFA;
 }
 
 .hourlyForecast p {
-	margin: 0;
-	
+	margin: 0.5rem;
+	font-size: 1.5rem;
 }
 
 .forecast {
 	width: 100%;
-	margin: auto;
-	margin-left: 40px;
-}
-
-.dailyForeCast {
-  display: inline-block;
-  border: 2px solid white;
-	border-radius: 20px;
-  margin: auto;
-  text-align: center;
-  padding: 30px;
-	width: 30%;
-	max-width: 450px;
-	min-width: 150px;
-	background: #000009;
-	color: #FFFAFA;
-	
+	margin: 0 auto;
 }
 
 .daily {
+	display: flex;
+	flex-wrap: wrap;
 	width: 100%;
-	margin: auto;
-	margin-left: 40px;
+	justify-content: center;
+	align-content: center;
+	margin: 0 auto;
+}
+
+.dailyForeCast {
+	border: 2px solid white;
+	border-radius: 20px;
+	margin-bottom: 2rem;
+	text-align: center;
+	padding: 2rem;
+	width: 350px;
+	background: #000009;
+	color: #FFFAFA;
 }
 
 .day {
-	font-size: 28px;
+	font-size: 1.8rem;
 	font-weight: bold;
 }
 
 .imgLabel {
-	font-size: 20px;
+	font-size: 1.3rem;
 }
 
 .dailyImg {
-	display: block;
-	margin: auto;
+	
+	width: 100px;
 }
 
 .maxTemp, .minTemp {
-	display: inline-block;
-	margin-right: 20px;
-	font-size: 20px;
+	font-size: 1.2rem;
 }
 
-@media screen and (max-width: 515px) and (min-width: 250px) {
-	.topContainer {
-		padding: 1px 1px;
+@media (max-width: 900px) {
+	.currentInfo > div {
+		width: 250px;
+	}
+}
+
+@media (max-width: 600px) {
+	nav .name {
+		font-size: 1.2rem;
+		width: 100px;
 	}
 
-	.weatherType {
-		margin-left: 0;
+	.weatherCondition {
+		display: none !important;
 	}
 
 	.weatherType p {
-		font-size: 20px;
-		padding: 0;
-		width: 40px
+		font-size: 1.5rem;
+		margin-left: 0.5rem;
 	}
-
+	
+	.loc i {
+		font-size: 1.5rem;
+	}
+	
 	.loc h2{
-		padding-top: 0;
-		font-size: 20px;
+		font-size: 1.5rem;
+		
 	}
-
-	.tempUnit {
-		width: 120px;
-	}
-
+	
 	.tempUnit button {
-		font-size: 20px;
-		padding: 5px;
-		margin: 15px 2px;
+		font-size: 1rem;
 	}
 	
-	
-	.leftCurrent {
-		width: 100%;
-		float: left;
+	.currentTemp{
+		font-size: 3.5rem;
 	}
 	
-	.currentTemp, .currentDate, .highLow{
-		width: 45%
+	.currentDate {
+		font-size: 1.7rem;
 	}
+	
+	.highLow p {
+		font-size: 1.4rem;
+	}
+	
 	
 	.currentInfo > div {
-		min-width: 25%;
-	}
-	
-	.icon {
-		width: 290px;
-		margin-right: 3px;
-		position: relative;
-		top: -500px;
-	}
-	
-	#hForeLab {
-		margin: 5px;
-		top: -280px;
-	}
-
-	.hourlyForecast {
-		margin-top: 20px;
-		padding: 10px;
-		width: 70px;
-		top: -220px;
-		position: relative;
-	}
-	
-	nav {
-		display: block;
-		padding: 20px 30px;
-	}
-
-	nav .name {
-		font-size: 35px;
-		text-align: center;
-	}
-
-	nav .searchBar {
-		padding-top: 5px;
 		margin: auto;
-		width: 240px;
+		margin-bottom: 1rem;
+		width: 200px;
 	}
 	
-
-}
-
-@media screen and (max-width: 890px) and (min-width: 516px) {
-	
-	.topContainer {
-		padding: 6px 20px;
-	}
-
-	.weatherType {
-		margin-left: 0;
-	}
-
-	.weatherType p {
-		font-size: 25px;
+	.currentInfo > div > p {
+		font-size: 1.4rem;
 	}
 	
-
-	.loc h2{
-		padding-top: 0;
-		font-size: 25px;
+	
+	.hourlyForecast p {
+		font-size: 1.1rem;
 	}
 	
-
-	.tempUnit {
-		width: 130px
-	}
 	
-
-	.tempUnit button {
-		font-size: 25px;
-		padding: 5px;
-		margin: 15px 2px;
-	}
-	
-	.leftCurrent {
-		width: 100%;
-		float: left;
-	}
-	
-	.currentTemp, .currentDate, .highLow{
-		width: 30%
-	}
-	
-	.icon {
-		width: 350px;
-		margin-right: 3px;
-		position: relative;
-		top: -500px;
-	}
-	
-	#hForeLab {
-		margin: 5px;
-		top: -310px;
-	}
-
-	.hourlyForecast {
-		margin-top: 70px;
-		padding: 10px;
-		width: 70px;
-		top: -250px;
-		position: relative;
-	}
-	
-}
-
-@media screen and (max-width: 1015px) and (min-width: 891px) {
-	#hForeLab {
-		width: 2px;
-		margin: 5px;
-		top: 20px;
-		position: relative;
-	}
-	
-	.hourlyForecast {
-		margin-top: 53px;
-		font-size: 20px;
-		width: 70px;
-		top: 50px;
-		position: relative;
-	}
-	
-	.leftCurrent {
-		width: 50%;	
-	}
-
-	.icon {
-		width: 380px;
-		position: relative;
-		top: 140px;
-	}
-}
-
-@media screen and (min-width: 1017px) {
-	#hForeLab {
-		width: 2px;
-		margin: 5px;
-		top: 20px;
-		position: relative;
-	}
-	
-	.hourlyForecast {
-		margin-top: 53px;
-		font-size: 20px;
-		width: 70px;
-		top: 50px;
-		position: relative;
-	}
-	
-	.leftCurrent {
-		width: 50%;	
-	}
-
-	.icon {
-		width: 380px;
-		position: relative;
-		top: 70px;
-	}
-}
-
-@media screen and (max-width: 590px) and (min-width: 250px) {
-
-	.forecast {
-		width: 100%;
-		margin: auto;
-		margin-top: 30px;
-	}
-
 	.dailyForeCast {
-		display: block;
-		width: 100%;
-	}
-	
-	.daily {
-		margin-left: 0;
-	}
-
-}
-
-@media screen and (max-width: 889px) and (min-width: 591px) {
-	
-	.forecast {
-		width: 100%;
-		margin: auto;
-	}
-
-	.dailyForeCast {
-		display: inline-block;
-		height: 200px;
-		margin: 1px auto;
-		padding: 40px;
-		width: 34%;
+		width: 200px;
 	}
 	
 	.day {
-		font-size: 18px;
-		font-weight: bold;
+		font-size: 1.4rem;
 	}
 	
+	.imgLabel {
+		font-size: 1rem;
+	}
+	
+	.dailyImg {
+		
+		width: 70px;
+	}
+
 	.maxTemp, .minTemp {
-		font-size: 16px;
-	}
-	
-	.daily {
-		margin-left: 12px;
-	}
-
-}
-
-@media screen and (max-width: 515px) {
-	.icon {
-		width: 300px;
-		position: relative;
-		top: -460px;
-		margin-right: -20px;
+		font-size: 1rem;
 	}
 }
 
-@media screen and (max-width: 1251px) and (min-width: 890px) {
-
-	.forecast {
-		width: 100%;
-		margin: auto;
+@media (max-width: 420px) {
+	.weatherType p {
+		font-size: 1.2rem;
 	}
 	
+	.loc i {
+		font-size: 1.2em;
+	}
+	
+	.loc h2{
+		font-size: 1.2rem;
+		
+	}
+	
+	.currentInfo > div {
+		width: 170px;
+	}
+	
+	.currentInfo > div > p {
+		font-size: 1.2rem;
+	}
+	
+	.hourlyForecast {
+		margin: 0.5rem;
+	  }
+	
+	.hourlyForecast p {
+		font-size: 1.1rem;
+	}
+
 	.dailyForeCast {
-		width: 42%;
+		width: 170px;
 	}
-
+	
 }

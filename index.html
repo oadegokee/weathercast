@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Weather Cast</title>
 	<link rel="stylesheet" href="styles/style.css">
 	<script src="https://kit.fontawesome.com/67c66657c7.js"></script>
@@ -9,87 +10,87 @@
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-	<nav class="nav">
-		<div class="name">Weather Cast</div>
-		<div class="searchBar">
-			<input type="search" placeholder="Enter city or zip code" class="search">
-			<span class="fa fa-search" id="sIcon"></span>
+	<div class="container">
+		<nav>
+			<p class="name">Weather Cast</p>
+			<div class="searchBar">
+				<input type="search" placeholder="Enter city or zip code" class="search">
+			</div>
 			
-		</div>
+		</nav>
+	
+		<p id="error">Please enter a valid City or Zip Code</p>
+		<p class="loading"></p>
 		
-	</nav>
-
-	<p id="error">Please enter a valid City or Zip Code</p>
-
-	<p class="loading"></p>
+		<div class="content">
+			<div class="topContainer">
+				<div class="weatherType">
+					<p class="today">Today</p>
+					<p class="week">Week</p>
+				</div>
 	
-	<div class="content">
-		<div class="topContainer">
-			<div class="weatherType">
-				<p class="today">Today</p>
-				<p class="week">Week</p>
-			</div>
-
-			<div class="loc">
-				<i class="material-icons">place</i>
-				<h2 class="location"></h2>
-			</div>
-
-			<div class="tempUnit">
-				<button class="celcius">°C</button>
-				<button class="fah">°F</button>
-			</div>
-		</div>
+				<div class="loc">
+					<i class="material-icons">place</i>
+					<h2 class="location"></h2>
+				</div>
 	
-		<div>
+				<div class="tempUnit">
+					<button class="celcius">°C</button>
+					<button class="fah">°F</button>
+				</div>
+			</div>
+		
 			<div class="current">
-				<div class="leftCurrent">
-					<p class="currentTemp"></p>
-					<p class="currentDate"></p>
-
-					<div class="highLow">
-						<p class="currentHigh"></p>&nbsp;&nbsp;
-						<p class="currentLow"></p>
+				<div class="now">
+					<div class="leftCurrent">
+						<p class="currentTemp"></p>
+						<p class="currentDate"></p>
+		
+						<div class="highLow">
+							<p class="currentHigh"></p>&nbsp;&nbsp;
+							<p class="currentLow"></p>
+						</div>
+		
+						
+						<div class="currentInfo">
+							<div class="feels">
+								<p class="feelsLabel">Feel Like</p>
+								<p class="feelsLike"></p>
+							</div>
+							
+		
+							<div class="riseSet">
+								<p class="riseTime"></p>
+								<p class="setTime"></p>
+							</div>
+		
+							<div class="wind">
+								<p class="windLabel">Wind Status</p>
+								<p class="windStatus"></p>
+							</div>
+		
+							<div class="humid">
+								<p class="humidLabel">Humidity</p>
+								<p class="humidity"></p>
+							</div>
+							
+							<div>
+								<p class="pLabel">Pressure</p>
+								<p class="pressure"></p>
+							</div>
+							
+							<div>
+								<p class="visLabel">Visibility</p>
+								<p class="visibility">h</p>
+							</div>
+						</div>
 					</div>
-
-					<!-- Start Here -->
-					<div class="currentInfo">
-						<div class="feels">
-							<p class="feelsLabel">Feel Like</p>
-							<p class="feelsLike"></p>
-						</div>
-						
-
-						<div class="riseSet">
-							<p class="riseTime"></p>
-							<p class="setTime"></p>
-						</div>
-
-						<div class="wind">
-							<p class="windLabel">Wind Status</p>
-							<p class="windStatus"></p>
-						</div>
-
-						<div class="humid">
-							<p class="humidLabel">Humidity</p>
-							<p class="humidity"></p>
-						</div>
-						
-						<div>
-							<p class="pLabel">Pressure</p>
-							<p class="pressure"></p>
-						</div>
-						
-						<div>
-							<p class="visLabel">Visibility</p>
-							<p class="visibility">h</p>
-						</div>
+		
+					<div class="weatherCondition">
+						<img class="icon" src="" alt="">
 					</div>
 				</div>
-
-				<div class="weatherCondition">
-					<img class="icon" src="" alt="">
-				</div>
+				
 				
 				<div class="hForecast">
 					<h2 id="hForeLab">Hourly Forecast</h2>
@@ -98,15 +99,18 @@
 						
 					</div>
 				</div>
+				
+			</div>
+	
+			<div class="forecast">
+				<div class="daily">
+					
+				</div>
 			</div>
 		</div>
 
-		<div class="forecast">
-			<div class="daily">
-				
-			</div>
-		</div>
 	</div>
+	
 	
 	<script src="scripts/index.js"></script>
 </body>
