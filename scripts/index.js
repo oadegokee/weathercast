@@ -43,8 +43,8 @@ window.onload = function() {
 				var fahrnBtn = document.querySelector(".fah");
 				
 
-				api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
-				forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
+				api = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=metric`;
+				forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=metric`;
 				degreeType = "°C";
 				windType = "mph";
 
@@ -80,7 +80,7 @@ window.onload = function() {
 			newFahrnBtn.innerHTML = "°F";
 			tempUnit.append(newFahrnBtn);
 
-			api = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
+			api = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=metric`;
 			degreeType = "°C";
 			windType = "mph";
 			newCelciusBtn.style.opacity = 1.0;
@@ -97,7 +97,7 @@ window.onload = function() {
 					lat = data.locations[0].referencePosition.latitude;
 					long = data.locations[0].referencePosition.longitude;
 
-					forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
+					forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=metric`;
 
 					clickDegree(api, forecastApi, newCelciusBtn, newFahrnBtn);
 					getHourForeCast();
@@ -105,7 +105,7 @@ window.onload = function() {
 
 			} else {
 
-				api = `https://api.openweathermap.org/data/2.5/weather?zip=${searchInput}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
+				api = `https://api.openweathermap.org/data/2.5/weather?zip=${searchInput}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=metric`;
 
 				fetch(`http://api.zippopotam.us/us/${searchInput}`)
 				.then(function (response) {
@@ -117,7 +117,7 @@ window.onload = function() {
 					lat = data.places[0].latitude;
 					long = data.places[0].longitude;
 
-					forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=imperial`;
+					forecastApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&appid=2b68c5aecd9c2cdfc4368a50bcc2e815&units=metric`;
 					degreeType = "°C";
 					windType = "mph";
 
@@ -337,8 +337,8 @@ window.onload = function() {
 	
 	function clickDegree(newApi, newForecastApi, celciusBtn, fahrnBtn) {
 		celciusBtn.addEventListener("click", function() {		
-			api = newApi.replace("metric", "imperial");
-			forecastApi = newForecastApi.replace("metric", "imperial");
+			api = newApi.replace("imperial", "metric");
+			forecastApi = newForecastApi.replace("imperial", "metric");
 			degreeType = "°C";
 			windType = "mph";
 
@@ -351,8 +351,8 @@ window.onload = function() {
 		});
 		
 		fahrnBtn.addEventListener("click", function() {	
-			api = newApi.replace("imperial", "metric");
-			forecastApi = newForecastApi.replace("imperial", "metric");
+			api = newApi.replace("metric", "imperial");
+			forecastApi = newForecastApi.replace("metric", "imperial");
 			degreeType = "°F";
 			windType = "m/s";
 
